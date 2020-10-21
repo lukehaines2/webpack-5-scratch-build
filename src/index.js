@@ -1,3 +1,6 @@
+import eekeekpraak from "./images/eek.png";
+import cubes from "./images/cubes.svg";
+
 // Create a class property without a constructor
 class Game {
   name = 'Violin Charades'
