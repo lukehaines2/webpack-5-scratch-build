@@ -1,1 +1,1 @@
-console.log("hello world are you seeing this");
+(()=>{var e=new function e(){var n,t;!function(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}(this,e),t="Violin Charades",(n="name")in this?Object.defineProperty(this,n,{value:t,enumerable:!0,configurable:!0,writable:!0}):this.name=t};document.createElement("p").textContent="I like ".concat(e.name,".");var n=document.createElement("h1");n.textContent="Interesting!",document.querySelector("#root").append(n)})();
