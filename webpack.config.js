@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
@@ -13,6 +14,16 @@ module.exports = {
     filename: '[name].bundle.js',
   },
 
+  mode: 'development',
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, './dist'),
+    open: true,
+    compress: true,
+    hot: true,
+    port: 8080,
+  },
+
   plugins: [
     // Clean the old dist
     new CleanWebpackPlugin(),
@@ -22,7 +33,10 @@ module.exports = {
       title: 'Webpack Boilerplate',
       template: path.resolve(__dirname, './src/template.html'), // template file
       filename: 'index.html', // output file
-    })
+    }),
+
+    // Only update what has changed on hot reload
+    new webpack.HotModuleReplacementPlugin(),
   ],
 
   module: {
