@@ -7,13 +7,16 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, './src/index.js')
   },
+
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
   },
+
   plugins: [
     // Clean the old dist
     new CleanWebpackPlugin(),
+
     // Create index.html from template.html (index.js gets injected too as it's the main entry)
     new HtmlWebpackPlugin({
       title: 'Webpack Boilerplate',
@@ -21,6 +24,7 @@ module.exports = {
       filename: 'index.html', // output file
     })
   ],
+
   module: {
     rules: [
       // JavaScript
