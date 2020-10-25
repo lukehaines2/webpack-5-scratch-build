@@ -14,15 +14,15 @@ module.exports = {
     filename: '[name].bundle.js',
   },
 
-  mode: 'development',
-  devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, './dist'),
-    open: true,
-    compress: true,
-    hot: true,
-    port: 8080,
-  },
+  // mode: 'development',
+  // devServer: {
+  //   historyApiFallback: true,
+  //   contentBase: path.resolve(__dirname, './dist'),
+  //   open: true,
+  //   compress: true,
+  //   hot: true,
+  //   port: 8080,
+  // },
 
   plugins: [
     // Clean the old dist
@@ -36,7 +36,7 @@ module.exports = {
     }),
 
     // Only update what has changed on hot reload
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
   ],
 
   module: {
