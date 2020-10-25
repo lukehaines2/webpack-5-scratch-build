@@ -1,28 +1,21 @@
-const path = require('path');
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const paths = require('./paths');
+
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, './src/index.js')
+    main: [paths.src + '/index.js']
   },
 
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: paths.build,
     filename: '[name].bundle.js',
+    publicPath: '/'
   },
-
-  // mode: 'development',
-  // devServer: {
-  //   historyApiFallback: true,
-  //   contentBase: path.resolve(__dirname, './dist'),
-  //   open: true,
-  //   compress: true,
-  //   hot: true,
-  //   port: 8080,
-  // },
 
   plugins: [
     // Clean the old dist
@@ -31,12 +24,11 @@ module.exports = {
     // Create index.html from template.html (index.js gets injected too as it's the main entry)
     new HtmlWebpackPlugin({
       title: 'Webpack Boilerplate',
-      template: path.resolve(__dirname, './src/template.html'), // template file
+      favicon: paths.src + '/images/favicon.ico',
+      template: paths.src + '/template.html', // template file
       filename: 'index.html', // output file
     }),
 
-    // Only update what has changed on hot reload
-    // new webpack.HotModuleReplacementPlugin(),
   ],
 
   module: {
